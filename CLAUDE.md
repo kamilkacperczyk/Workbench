@@ -37,6 +37,20 @@ Wazne katalogi do czytania na poczatku sesji:
 - Sekrety: zmienne srodowiskowe lub `.env` (jest w `.gitignore`)
 - Prywatne notatki: folder `PRIV/` (jest w `.gitignore`)
 
+### Bezwzgledne zakazy dla AI agenta
+
+1. NIGDY nie czytaj `.env` przez Read/cat - tresc zostanie w transkrypcie/logach.
+   Zamiast tego: `source .env && uzyj $ZMIENNA`.
+2. NIGDY nie commituj `.env`, `.pem`, `.key`, backupow bazy, plikow z danymi klientow.
+3. NIGDY nie pisz hasel do kodu (nawet "tymczasowo do testow").
+4. NIGDY nie wrzucaj danych klientow (email, IP, nazwisko) do logow, testow, dumpow.
+5. NIGDY nie laczy sie klient (GUI/frontend) bezposrednio do bazy. Zawsze przez API.
+6. NIGDY nie uzywaj `git push --force` na `main` bez explicitnego polecenia.
+7. NIGDY nie skipuj pre-commit hooka (`--no-verify`).
+8. Przed commitem sprawdz `git diff --cached` czy nie ma danych wrazliwych.
+
+Pelne procedury: [findings/2026-04-20-procedury-bezpieczenstwa.md](findings/2026-04-20-procedury-bezpieczenstwa.md).
+
 ### Findings (OBOWIAZKOWE)
 
 Na biezaco, w trakcie pracy zapisuj do `findings/`:
