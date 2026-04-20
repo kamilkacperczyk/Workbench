@@ -1,0 +1,51 @@
+# Sekrety
+.env
+.env.local
+.env.*.local
+*.key
+*.pem
+secrets.*
+credentials.*
+
+# Prywatne notatki dewelopera (kazdy ma swoje lokalnie)
+PRIV/
+
+# Lokalne ustawienia Claude Code
+.claude/settings.local.json
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+venv/
+env/
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Node
+node_modules/
+dist/
+build/
+.next/
+.nuxt/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Build artifacts
+*.log
+*.tmp
+coverage/
+.coverage
+htmlcov/

@@ -1,0 +1,27 @@
+{
+  "_komentarz": "Skopiuj jako settings.json. settings.local.json jest w .gitignore i sluzy do nadpisywania per-deweloper.",
+  "permissions": {
+    "allow": [
+      "Bash(git status)",
+      "Bash(git diff:*)",
+      "Bash(git log:*)",
+      "Bash(ls:*)"
+    ],
+    "deny": []
+  },
+  "hooks": {
+    "_przyklad_pre_tool_use": {
+      "PreToolUse": [
+        {
+          "matcher": "Bash",
+          "hooks": [
+            {
+              "type": "command",
+              "command": "$CLAUDE_PROJECT_DIR/hooks/pre-bash-check.sh"
+            }
+          ]
+        }
+      ]
+    }
+  }
+}
