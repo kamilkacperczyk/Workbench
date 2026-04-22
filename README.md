@@ -4,13 +4,21 @@ Szablon repo do projektow opartych o Claude Code / Claude Agent SDK.
 
 Sklonuj, zmien nazwe, podmien placeholdery `{{...}}` w `CLAUDE.md` i zaczynaj.
 
-## Jak uzywac
+## Pierwsze uruchomienie
 
-1. Sklonuj lub uzyj jako template na GitHub
-2. Wypelnij `CLAUDE.md` (placeholdery: `{{PROJECT_NAME}}`, `{{TECH_STACK}}`, `{{LANGUAGE}}`)
-3. Skopiuj `.env.example` do `.env` i wypelnij sekrety
-4. Skopiuj `.claude/settings.json.example` do `.claude/settings.json` jesli chcesz hooki/permissions
-5. Stworz lokalnie folder `PRIV/` na swoje prywatne notatki (nie trafia do gita)
+1. **Uzyj jako template** na GitHub (przycisk "Use this template") albo `git clone`
+2. **Onboarding krok po kroku**: [setup/ONBOARDING.md](setup/ONBOARDING.md)
+3. **Deployment**: [setup/DEPLOYMENT.md](setup/DEPLOYMENT.md)
+
+Skrocony quick start (jesli chcesz tylko zerknac):
+- Wypelnij placeholdery `{{...}}` w `CLAUDE.md`
+- `cp .env.example .env` i wypelnij sekrety
+- `cp .claude/settings.json.example .claude/settings.json` (opcjonalnie)
+- `mkdir PRIV` na prywatne notatki (gitignored)
+- Aktywuj pre-commit hook (instrukcja w ONBOARDING.md)
+- (Opcjonalnie) zaadaptuj propozycje globalnego CLAUDE.md z `setup/global-claude-md.example`
+
+Pelne kroki + wymagania + weryfikacja: [setup/ONBOARDING.md](setup/ONBOARDING.md).
 
 ## Struktura
 
