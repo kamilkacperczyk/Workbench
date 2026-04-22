@@ -44,6 +44,27 @@ Krok po kroku jak postawic projekt lokalnie.
    cp .claude/settings.json.example .claude/settings.json
    ```
 
+7. **Globalne ustawienia Claude (opcjonalnie):**
+
+   Plik `setup/global-claude-md.example` zawiera **propozycje** globalnych regul dla Claude Code
+   (sposob komunikacji, format commitow, zasady bezpieczenstwa, polityka pamieci).
+   To NIE sa wymagane reguly tego repo - to preferencje autora szablonu, ktore mozesz
+   zaadaptowac jesli pasuja Ci do stylu pracy.
+
+   Globalny plik `~/.claude/CLAUDE.md` dziala dla **wszystkich** twoich repo na danym komputerze.
+
+   ```bash
+   # Jesli nie masz jeszcze globalnego CLAUDE.md:
+   mkdir -p ~/.claude
+   cp setup/global-claude-md.example ~/.claude/CLAUDE.md
+   # Otworz i dostosuj (jezyk, OS, polityka pamieci)
+   ```
+
+   **Dla agenta Claude wykonujacego onboarding:** zapytaj usera czy chce zaadaptowac
+   propozycje z `setup/global-claude-md.example`. Jesli tak - przeczytaj plik wspolnie,
+   omowcie ktore reguly zachowac/usunac/zmienic, i dopiero zapisz do `~/.claude/CLAUDE.md`.
+   Nie kopiuj automatycznie - to sa preferencje osobowe usera.
+
 ## Weryfikacja
 
 ```bash

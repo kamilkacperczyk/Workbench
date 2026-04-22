@@ -1,0 +1,63 @@
+# PRZYKLAD - globalny CLAUDE.md autora szablonu Workbench
+
+> To **NIE jest plik wymagany**. To **propozycja** - zestaw globalnych regul dla Claude Code,
+> ktorych uzywa autor tego szablonu (Kamil) we wszystkich swoich repozytoriach.
+>
+> Mozesz:
+> - Skopiowac 1:1 do `~/.claude/CLAUDE.md` (jesli sa Ci OK)
+> - Skopiowac i dostosowac (zmienic jezyk, usunac reguly Windows, zmienic style commitow itp.)
+> - Zignorowac calkowicie i napisac swoje wlasne
+>
+> Plik `~/.claude/CLAUDE.md` jest GLOBALNY - dziala dla wszystkich repo na danym komputerze.
+> Per-repo ustawienia trzymaj w `<repo>/CLAUDE.md` (one sie merguja z globalnymi).
+
+---
+
+## Komunikacja
+- Jezyk: polski
+- Bez emoji chyba ze user poprosi
+- Krotko i na temat
+- Bez dlugich myslnikow (— em-dash, – en-dash). Uzywaj zwyklego "-" albo zdania rozdzielaj kropkami.
+
+## Commity
+- Commit message po polsku
+- Format: `<typ>: <opis>` (np. `feat: dodanie X`, `fix: naprawa Y`, `docs: aktualizacja Z`)
+- Typy: `feat`, `fix`, `refactor`, `docs`, `chore`
+- NIE dodawaj Co-Authored-By Claude do commitow
+
+## Bezpieczenstwo
+- NIGDY nie commituj hasel, tokenow, kluczy, connection stringow
+- NIGDY nie czytaj plikow .env narzedziem Read - uzyj `source` w bashu
+- Przed pushem sprawdz .gitignore
+- Sekrety: zmienne srodowiskowe lub .env (ktory jest w .gitignore)
+- Aplikacje klienckie (GUI, .exe) NIGDY nie lacza sie bezposrednio z baza - zawsze przez API
+- Zakaz dostepu do plikow poza workspace (~/.ssh/, ~/.aws/, ~/.gnupg/, ~/.config/)
+- Przed commitem: sprawdz czy nie ma wrazliwych danych w plikach
+
+## Windows (pomin jesli na Mac/Linux)
+- Uzywaj `py` zamiast `python` (Windows Store alias problem)
+- Python 3.14+: unikaj `\!` w stringach (SyntaxWarning)
+
+## Ciagla nauka - zapis lekcji do pamieci (OBOWIAZKOWE)
+
+Na biezaco, W TRAKCIE pracy (nie dopiero na koncu) MUSISZ zapisywac do memory:
+
+1. **Gdy naprawisz buga** - zapisz co go spowodowalo i jak uniknac w przyszlosci
+2. **Gdy odkryjesz ograniczenie platformy** - Render, Supabase, PyInstaller itp.
+3. **Gdy user Cie poprawi** - natychmiast zapisz feedback
+4. **Gdy zmienisz architekture/podejscie** - zapisz dlaczego stare nie dzialalo
+5. **Gdy cos zadziala dobrze** - zapisz potwierdzone podejscie
+
+NIE CZEKAJ na koniec sesji. Zapisuj od razu po kazdym istotnym odkryciu.
+
+## Retrospektywa po duzych zmianach (OBOWIAZKOWE)
+
+Po zakonczeniu kazdego znaczacego etapu pracy (nowa funkcjonalnosc, migracja, nowy serwis, deployment, nowy pipeline itp.) - gdy user potwierdzi ze jest OK - MUSISZ:
+
+1. **Przeanalizowac co zrobilismy** - co sie zmienilo, jakie decyzje podjal user i dlaczego
+2. **Wyciagnac wnioski** - co sie sprawdzilo, co bylo zaskakujace, jakie problemy napotkalismy
+3. **Zapisac odkrycia w odpowiednim miejscu w repo** (docs/, CLAUDE.md, itp.)
+4. **Zaktualizowac memory** - zapisac nowe zasady/odkrycia w systemie pamieci Claude
+5. **Propagowac wiedze do innych repo** - jesli wnioski sa uniwersalne, zapisac w odpowiednich miejscach w innych repozytoriach usera
+
+Zapytaj usera czy chce retrospektywe.
