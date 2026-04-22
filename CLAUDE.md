@@ -20,6 +20,7 @@ Wazne katalogi do czytania na poczatku sesji:
 - `findings/` - co juz wiemy, jakie gotchas
 - `repo-knowledge/` - dokumentacja systemow ktorych dotykamy
 - `skills/` - dostepne custom skills
+- `hooks/` - aktywne hooki (pre-commit, post-tool-use, stop) - **przed kazda akcja ktora moze je odpalic** (commit, edit, bash) sprawdz co tam jest, zeby wiedziec co sie wydarzy automatycznie
 
 ## Zasady pracy
 
@@ -50,6 +51,19 @@ Wazne katalogi do czytania na poczatku sesji:
 8. Przed commitem sprawdz `git diff --cached` czy nie ma danych wrazliwych.
 
 Pelne procedury: [findings/2026-04-20-procedury-bezpieczenstwa.md](findings/2026-04-20-procedury-bezpieczenstwa.md).
+
+### Eksploracja kodu - delegowanie do subagentow
+
+Gdy zadanie wymaga przeczytania **wiecej niz 3 plikow na raz** (typowo: eksploracja codebase, mapowanie systemu) ALBO **plik ma > 1000 linii a potrzebujesz tylko fragmentu** - **deleguj do Task/Agent subagenta** zamiast czytac wszystko w glownym kontekscie.
+
+Zasady:
+- Subagent dostaje budzet **10-15 plikow max** + konkretne pytanie do odpowiedzi
+- Wracajacy raport ma byc **zwarty** ("under N words"), nie surowe outputy
+- Dla wielu niezaleznych watkow eksploracji - **rownolegle subagenty** (jedna wiadomosc, wiele Task wywolan)
+- Nie deleguj jesli wiesz dokladnie czego szukasz - uzyj odpowiedniej metody bezposrednio (Read na konkretny plik, Grep na konkretny wzorzec, Glob na pattern nazwy)
+- **Zakazy z sekcji "Bezwzgledne zakazy" obowiazuja zawsze** - nawet w "odpowiedniej metodzie bezposrednio". `.env`, klucze, backupy bazy NIGDY przez Read - niezaleznie od kontekstu.
+
+Po co: glowny kontekst zostaje czysty na implementacje, a subagent zwraca syntetyczna odpowiedz.
 
 ### Findings (OBOWIAZKOWE)
 
